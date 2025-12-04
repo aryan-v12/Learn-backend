@@ -14,16 +14,33 @@ const replyRoutes = require('./routes/replyRoutes'); // Discussion Forum
 const liveClassRoutes = require('./routes/liveClassRoutes'); // Live Classes
 const userRoutes = require('./routes/userRoutes'); 
 const chatRoutes = require('./routes/chatRoutes'); 
+                
+
+
+
+
+
+
+
+
 
 
 const app = express();
 
-// CORS middleware use kare
+// // CORS middleware use kare
+// app.use(cors({
+//   origin: ["http://localhost:3000", "https://customlearningplatform.netlify.app"], 
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+//   credentials: true, // Cookies aur authentication headers allow kare
+// }));
+// CORS configuration
 app.use(cors({
-  origin: ["http://localhost:3000", "https://customlearningplatform.netlify.app"], 
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-  credentials: true, // Cookies aur authentication headers allow kare
+  origin: ['https://learnihub.netlify.app', 'http://localhost:3000'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
 
 // Middlewares
 app.use(express.json()); // JSON body parser
